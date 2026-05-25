@@ -1,67 +1,105 @@
 body {
-  background-color: #f0f0f0;
-  font-family: Asial, sans-serif;
+  margin: 0;
+  font-family: -apple-system, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
-div {
-  text-align: center;
+.App {
+  max-width: 600px;
+  margin: 40 px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0,3);
 }
 
-input {
-  padding: 12px;
-  font-size: 16px;
-  border: 2px solid #4caf50;
-  border-radius: 8px;
-  outline: none;
+nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+nav a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600px;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #667eea;
+  color: white;
 }
 
 h1 {
   color: #333;
-  margin-top: 20px;
+  text-align: center;
+}
+
+input {
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  width: 60%;
+}
+
+input:focus {
+  border-color: #667eea;
 }
 
 button {
-  padding: 10px 24px;
-  font-size: 16px;
-  background-color: #4caf50;
+  padding: 12px;
+  background: #667eea;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-size: 14px;
   cursor: pointer;
   margin-left: 10px;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background: #5568d3;
 }
 
 ul {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
 }
 
 li {
-  list-style: flex;
+  background: #f5f5f5;
+  padding: 15px 20px;
+  margin: 10px 0;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  padding: 12px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-  min-width: 300px;
 }
 
 li button {
-  background-color: #f44336;
-  margin-left: 20px;
+  background: #e74c3c;
+  padding: 8px 16px;
 }
 
 li button:hover {
-  background-color: #d32f2f;
+  background: #c0392b;
+}
+
+li {
+   transition: 0.3s;
+}
+
+li:hover {
+  transform: translateX(5px);
+  background: #e8e8e8;
 }

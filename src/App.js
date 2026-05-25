@@ -1,45 +1,31 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Home from './Home'
+import About from './About'
+import Contact from './Contact'
+import Users from './User'
+import UserDetail from './UserDetail'
 import './App.css'
 
 function App() {
-  const [vazifa, setVazifa] = useState('')
-  const [royxat, setRoyxat] = useState(() => {
-    const saqlangan = localStorage.getItem('vazifalar')
-    return saqlangan ? JSON.parse(saqlangan) : []
-  })
-
-  useEffect(() => {
-    localStorage.setItem('vazifalar', JSON.stringify(royxat))
-  }, [royxat])
-
-  function qoshish() {
-    if (vazifa.trim() === '') return
-    setRoyxat([...royxat, vazifa])
-    setVazifa('')
-  }
-
-  function ochirish(index) {
-    setRoyxat(royxat.filter((_, i) => i !== index))
-  }
-
   return (
-    <div>
-      <input
-      value={vazifa}
-      onChange={(e) => setVazifa(e.target.value)}
-      placeholder="Vazifani yoz"
-      />
-      <button onClick={qoshish}>Qoshish</button>
+    <BrowserRouter>
+      <div className="App">
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/users">Users</Link>
+        </nav>
 
-      <ul>
-        {royxat.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button onClick={() => ochirish(index)}>Ochirish</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/users/:id" element={<UserDetail />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
